@@ -2,6 +2,11 @@
 
 ### This is a gem for dealing with Apple Final Cut Pro XML files generated during the NYU DLTS video production workflow.
 
+## Current Status
+
+* Under development
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -17,6 +22,9 @@ Or install it yourself as:
     $ gem install nyudl-video-fcp
 
 ## Usage
+```ruby
+require 'nyudl/video/fcp'
+```
 
 
 
