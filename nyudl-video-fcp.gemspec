@@ -23,6 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "fakefs"
   spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "fuubar", "~> 1.3.2"
 
   spec.add_dependency "nokogiri", "~> 1.6.1"
 end

@@ -1,4 +1,5 @@
 require "nyudl/video/fcp/version"
+require "nyudl/video/fcp/base"
 
 module Nyudl
   module Video
