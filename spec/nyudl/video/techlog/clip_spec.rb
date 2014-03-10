@@ -21,6 +21,14 @@ describe Nyudl::Video::Techlog::Clip do
       expect { Nyudl::Video::Techlog::Clip.new(name: 'end of video') }.to raise_error(RuntimeError, 'frame_count_out: missing frame count')
     end
 
+    it 'does not raise an exception if beginning frame count present' do
+      expect { Nyudl::Video::Techlog::Clip.new(name: 'beginning of video', in: 0) }.not_to raise_error
+    end
+    it 'raises an exception if end frame count missing' do
+      expect { Nyudl::Video::Techlog::Clip.new(name: 'end of video', in: 10) }.not_to raise_error
+    end
+
+
   end
 
 
