@@ -1,6 +1,6 @@
 module Nyudl
   module Video
-    module Fcp
+    module Techlog
       # Guidance from: http://www.andrewduncan.ws/Timecodes/Timecodes.html
       class TimeCode_29_97
         FRAMES_PER_SEC_29_97 = 29.97

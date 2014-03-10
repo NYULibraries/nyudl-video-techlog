@@ -1,10 +1,10 @@
 require 'nokogiri'
 module Nyudl
   module Video
-    module Fcp
+    module Techlog
       class Clip
         self.to_time(fps = 29.97)
-        
+
 
         def initialize(params = {})
           @params     = params.dup
@@ -23,8 +23,8 @@ module Nyudl
 
         private
         def determine_type
-          
-          
+
+
         end
 
       end
@@ -33,12 +33,12 @@ module Nyudl
 end
 
 =begin
-          @params     = params.dup
-          @name       = params[:name]
-          @comment    = params[:comment]
-          @frames_in  = params[:in]
-          @frames_out = params[:out]
-          @type       = determine_type
+		  @params     = params.dup
+		  @name       = params[:name]
+		  @comment    = params[:comment]
+		  @frames_in  = params[:in]
+		  @frames_out = params[:out]
+		  @type       = determine_type
 
 
 
@@ -54,34 +54,34 @@ flow:
   clips = [ ]
   current_clip = clip.new
   for each marker
-    current_clip.process(marker_to_params)
-    if current_clip.valid?
-      # we're done with this one
-      clips << current_clip
-      current_clip = clip.new
-    end
+	current_clip.process(marker_to_params)
+	if current_clip.valid?
+	  # we're done with this one
+	  clips << current_clip
+	  current_clip = clip.new
+	end
   end
   # map function here accumulate a
   clips.each do |clip
 
 caller:
-  the fcp video processor
+  the techlog video processor
   getting at a video object
   video
-    digitization info
-      digi note
-      extracted structure
+	digitization info
+	  digi note
+	  extracted structure
 
 
-      fps
-      
+	  fps
+
 instantiate:
   fps is global
-  path to fcp file
+  path to techlog file
   extract digi note
   extract clips : framecount in / framecount out
 
-  
-  
+
+
 
 =end

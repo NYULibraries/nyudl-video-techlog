@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe Nyudl::Video::Fcp::Base do
-  let(:fcp) { Nyudl::Video::Fcp::Base.new('test/template.xml') }
-  let(:fcp_single) { Nyudl::Video::Fcp::Base.new('test/template.xml') }
+describe Nyudl::Video::Techlog::Base do
+  let(:techlog) { Nyudl::Video::Techlog::Base.new('test/template.xml') }
+  let(:techlog_single) { Nyudl::Video::Techlog::Base.new('test/template.xml') }
   describe '.new' do
     it 'returns an object of the correct class' do
-      expect(fcp).to be_instance_of(Nyudl::Video::Fcp::Base)
+      expect(techlog).to be_instance_of(Nyudl::Video::Techlog::Base)
     end
     it 'raises an exception if file cannot be found' do
-      expect {Nyudl::Video::Fcp::Base.new('asdfadfadsf')}.to raise_error(Errno::ENOENT)
+      expect {Nyudl::Video::Techlog::Base.new('asdfadfadsf')}.to raise_error(Errno::ENOENT)
     end
     it 'raises an exception if file is not readable'
   end
