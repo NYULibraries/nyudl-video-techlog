@@ -7,6 +7,7 @@ end
 
 %w(
    base
+   time_code_29_97
 ).each { |f| require_relative(File.join('..','lib','nyudl','video','fcp',f)) }
 
 RSpec.configure do |config|

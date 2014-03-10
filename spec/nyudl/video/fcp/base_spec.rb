@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Nyudl::Video::Fcp::Base do
   let(:fcp) { Nyudl::Video::Fcp::Base.new('test/template.xml') }
+  let(:fcp_single) { Nyudl::Video::Fcp::Base.new('test/template.xml') }
   describe '.new' do
     it 'returns an object of the correct class' do
       expect(fcp).to be_instance_of(Nyudl::Video::Fcp::Base)
@@ -11,9 +12,8 @@ describe Nyudl::Video::Fcp::Base do
     end
     it 'raises an exception if file is not readable'
   end
-# # raises and
-#   describe '#clips' do
-# #    let (:fcp) {
+end
+#    describe '#clips' do
 #     context 'with a single clip' do
 # #      expect clip count to be correct
 #     end
@@ -33,4 +33,3 @@ describe Nyudl::Video::Fcp::Base do
 #   context 'with multiple clips'
 #   context 'with a clip missing an end marker'
 #   context 'with an unrecognized marker name'
-end
