@@ -3,30 +3,48 @@ module Nyudl
   module Video
     module Techlog
       class Clip
-        self.to_time(fps = 29.97)
-
-
         def initialize(params = {})
-          @params     = params.dup
-          @name       = params[:name]
-          @comment    = params[:comment]
-          @frames_in  = params[:in]
-          @frames_out = params[:out]
-          @type       = determine_type
+          @notes = nil
+          @name  = nil
+          @frame_count_in  = nil
+          @frame_count_out = nil
+          process_params(params)
+        end
+
+        def process_params(params)
+          process_notes(params)
+          process_name(params)
+          process_frame_count_in(params)
+          process_frame_count_out(params)
         end
 
         def valid?
-          # frames_in not nil
-          # frames_out not nil
-          # type not :unknown
+          if ( @frame_count_in && @frame_count_out )
+            frame_count_out <= frame_count_in
+          else
+            false
+          end
         end
 
         private
-        def determine_type
-
-
+        def process_notes(params)
         end
-
+        def process_name(params)
+        end
+        def process_frame_count_in(params)
+          case params[:name]
+          when /beginning of video|start of video/i
+            raise "frame_count_in: missing frame count" unless params[:in]
+            @frame_count_in = params[:in]
+          end
+        end
+        def process_frame_count_out(params)
+          case params[:name]
+          when /end of video/i
+            raise "frame_count_out: missing frame count" unless params[:in]
+            @frame_count_in = params[:in]
+          end
+        end
       end
     end
   end
