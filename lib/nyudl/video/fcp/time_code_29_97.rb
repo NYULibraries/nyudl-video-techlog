@@ -21,7 +21,7 @@ module Nyudl
         def self.time_in_sec_to_frames(timecode)
 
           # parse incoming time
-          hh_s, mm_s, ss_s = timecode.split delimiter
+          hh_s, mm_s, ss_s = timecode.split ':'
 
           hh = hh_s.to_i
           mm = mm_s.to_i
@@ -29,7 +29,7 @@ module Nyudl
 
           total_seconds = (((60 * hh) + mm) * 60) + ss
 
-          Integer.to_i(total_seconds / FRAMES_PER_SEC_29_97)
+          (total_seconds * FRAMES_PER_SEC_29_97).round.to_i
         end
       end
     end
