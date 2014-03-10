@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xmeml>
+<xmeml version="4">
+<sequence id="mockup">
+	<marker>
+		<name>QC</name>
+		<comment></comment>
+		<in>0</in>
+		<out>-1</out>
+	</marker>
+	<marker>
+		<name>beginning of video</name>
+		<comment> &lt;CHAPTER&gt;</comment>
+		<in>1350</in>
+		<out>-1</out>
+	</marker>
+	<marker>
+		<name>end of video</name>
+		<comment> &lt;CHAPTER&gt;</comment>
+		<in>28674</in>
+		<out>-1</out>
+	</marker>
+</sequence>
+</xmeml>
+
