@@ -4,8 +4,11 @@ describe Nyudl::Video::Techlog::Clip do
   let(:clip) { Nyudl::Video::Techlog::Clip.new({}) }
   let(:invalid_frame_count_in) { Nyudl::Video::Techlog::Clip.new(name: 'start of video') }
   let(:invalid_frame_count_out){ Nyudl::Video::Techlog::Clip.new(name: 'end of video') }
-  let(:valid_frame_count_in) { Nyudl::Video::Techlog::Clip.new(name: 'start of video', in: 5) }
-  let(:valid_frame_count_out){ Nyudl::Video::Techlog::Clip.new(name: 'end of video',   in: 10) }
+  let(:valid_frame_count_in)   { Nyudl::Video::Techlog::Clip.new(name: 'start of video', in: 5) }
+  let(:valid_frame_count_out)  { Nyudl::Video::Techlog::Clip.new(name: 'end of video',   in: 10) }
+  let(:valid_notes_no_note)    { Nyudl::Video::Techlog::Clip.new(name: 'QC') }
+  let(:valid_notes_with_note)  { Nyudl::Video::Techlog::Clip.new(name: 'QC', comment: 'digi notes') }
+
 
   describe '.new' do
     it 'returns an object of the correct class' do
@@ -48,6 +51,18 @@ describe Nyudl::Video::Techlog::Clip do
       expect(valid_frame_count_out.frame_count_out).to eql(10)
     end
   end
+  describe '#notes' do
+    it 'returns nil if notes not initialized' do
+      expect(clip.notes).to be_nil
+    end
+    it 'returns "" if notes text not provided' do
+      expect(valid_notes_no_note.notes).to eql("")
+    end
+    it 'returns notes text provided' do
+      expect(valid_notes_with_note.notes).to eql("digi notes")
+    end
+  end
+
 end
   #    describe '#clips' do
   #     context 'with a single clip' do

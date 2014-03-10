@@ -3,7 +3,7 @@ module Nyudl
   module Video
     module Techlog
       class Clip
-        attr_accessor :frame_count_in, :frame_count_out
+        attr_accessor :frame_count_in, :frame_count_out, :notes
         def initialize(params = {})
           @notes = nil
           @name  = nil
@@ -29,6 +29,10 @@ module Nyudl
 
         private
         def process_notes(params)
+          case params[:name]
+          when /QC|QA/i
+            @notes = params[:comment] || ""
+          end
         end
         def process_name(params)
         end
