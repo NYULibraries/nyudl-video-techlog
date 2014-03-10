@@ -1,7 +1,7 @@
 require 'nokogiri'
 module Nyudl
   module Video
-    module Fcp
+    module Techlog
       class Base
         attr_reader   :digi_notes, :clips
         attr_accessor :frame_rate
@@ -12,11 +12,11 @@ module Nyudl
           @clips = []
           @frame_rate = 29.97
 
-          process_fcp_file
+          process_techlog_file
         end
 
         private
-        def process_fcp_file
+        def process_techlog_file
           f = File.open(@file_path)
         end
 

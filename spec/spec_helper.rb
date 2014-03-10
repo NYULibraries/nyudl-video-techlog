@@ -8,7 +8,7 @@ end
 %w(
    base
    time_code_29_97
-).each { |f| require_relative(File.join('..','lib','nyudl','video','fcp',f)) }
+).each { |f| require_relative(File.join('..','lib','nyudl','video','techlog',f)) }
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true

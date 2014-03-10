@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'nyudl/video/fcp/version'
+require 'nyudl/video/techlog/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "nyudl-video-fcp"
-  spec.version       = Nyudl::Video::Fcp::VERSION
+  spec.name          = "nyudl-video-techlog"
+  spec.version       = Nyudl::Video::Techlog::VERSION
   spec.authors       = ["Joseph Pawletko"]
   spec.email         = ["jgpawletko@gmail.com"]
-  spec.description   = %q{Gem encapsulates functionality required to deal with Apple Final Cut Pro XML files generated as part of the NYU DLTS Video capture workflow.}
-  spec.summary       = %q{Library for NYU DLTS Final Cut Pro XML files}
+  spec.description   = %q{Gem encapsulates functionality required to deal with various video digitization techlog files generated as part of the NYU DLTS Video capture workflow.}
+  spec.summary       = %q{Library for NYU DLTS Video Techlog files}
   spec.homepage      = ""
   spec.license       = "MIT"
 
