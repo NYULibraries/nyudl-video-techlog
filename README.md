@@ -1,6 +1,6 @@
-# Nyudl::Video::Fcp
+# Nyudl::Video::Techlog
 
-#### A gem for working with Apple Final Cut Pro XML files generated during the NYU DLTS video production workflow.
+#### A gem for working with techlog files generated during the NYU DLTS video production workflow.
 
 ## Current Status
 
@@ -11,7 +11,7 @@
 
 Add this line to your application's Gemfile:
 
-	gem 'nyudl-video-fcp'
+	gem 'nyudl-video-techlog'
 
 And then execute:
 
@@ -19,14 +19,16 @@ And then execute:
 
 Or install it yourself as:
 
-	$ gem install nyudl-video-fcp
+	$ gem install nyudl-video-techlog
 
 ## Context
-  Currently, fcp.xml files are used during the video digitization/capture process
-  to indicate content begin/end points and source video condition data.
-  All three of these types of data are stored using chapter markers in the
-  fcp file.
+  Currently, techlog files are created during the video digitization/capture process,
+  e.g., Apple Final Cut Pro XML (FCP), SAMMA migration files.
+
+  The gem will initially support FCP files, extracting the digitization quality control
+  data as well as the time-in/time-out points of the various content clips.
   
+### FCP files: 
   The XPath expression for these elements:
   /xmeml/sequence/marker
   
@@ -57,11 +59,11 @@ Or install it yourself as:
 
 ## Usage
 
-	require 'nyudl/video/fcp'
+	require 'nyudl/video/techlog'
 
-    fcp = Nyudl::Video::Fcp.new(File.open('path/to/fcp.xml',options)
-	fcp.valid?
-	fcp.clips 
+    techlog = Nyudl::Video::Techlog::Fcp.new(File.open('path/to/techlog.xml',options)
+	techlog.valid?
+	techlog.clips 
 	clip.time_in.smpte_29_97
 	clip.time_out.smpte_29_97
 	clip.time_in.frames
