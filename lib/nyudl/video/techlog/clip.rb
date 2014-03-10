@@ -3,6 +3,7 @@ module Nyudl
   module Video
     module Techlog
       class Clip
+        attr_accessor :frame_count_in, :frame_count_out
         def initialize(params = {})
           @notes = nil
           @name  = nil
@@ -38,11 +39,14 @@ module Nyudl
             @frame_count_in = params[:in]
           end
         end
+        # N.B. the way clips are described by DLTS CCG, the FCP /xmeml/marker/in is used
+        #      to communicate a frame count. /xmeml/marker/out is NOT used
+        #      therefore, the params key is always :in
         def process_frame_count_out(params)
           case params[:name]
           when /end of video/i
             raise "frame_count_out: missing frame count" unless params[:in]
-            @frame_count_in = params[:in]
+            @frame_count_out = params[:in]
           end
         end
       end
@@ -51,12 +55,12 @@ module Nyudl
 end
 
 =begin
-		  @params     = params.dup
-		  @name       = params[:name]
-		  @comment    = params[:comment]
-		  @frames_in  = params[:in]
-		  @frames_out = params[:out]
-		  @type       = determine_type
+                  @params     = params.dup
+                  @name       = params[:name]
+                  @comment    = params[:comment]
+                  @frames_in  = params[:in]
+                  @frames_out = params[:out]
+                  @type       = determine_type
 
 
 
@@ -72,12 +76,12 @@ flow:
   clips = [ ]
   current_clip = clip.new
   for each marker
-	current_clip.process(marker_to_params)
-	if current_clip.valid?
-	  # we're done with this one
-	  clips << current_clip
-	  current_clip = clip.new
-	end
+        current_clip.process(marker_to_params)
+        if current_clip.valid?
+          # we're done with this one
+          clips << current_clip
+          current_clip = clip.new
+        end
   end
   # map function here accumulate a
   clips.each do |clip
@@ -86,12 +90,12 @@ caller:
   the techlog video processor
   getting at a video object
   video
-	digitization info
-	  digi note
-	  extracted structure
+        digitization info
+          digi note
+          extracted structure
 
 
-	  fps
+          fps
 
 instantiate:
   fps is global

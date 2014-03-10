@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Nyudl::Video::Techlog::Clip do
   let(:clip) { Nyudl::Video::Techlog::Clip.new({}) }
+  let(:invalid_frame_count_in) { Nyudl::Video::Techlog::Clip.new(name: 'start of video') }
+  let(:invalid_frame_count_out){ Nyudl::Video::Techlog::Clip.new(name: 'end of video') }
+  let(:valid_frame_count_in) { Nyudl::Video::Techlog::Clip.new(name: 'start of video', in: 5) }
+  let(:valid_frame_count_out){ Nyudl::Video::Techlog::Clip.new(name: 'end of video',   in: 10) }
 
   describe '.new' do
     it 'returns an object of the correct class' do
@@ -15,23 +19,35 @@ describe Nyudl::Video::Techlog::Clip do
   end
   describe '#process_params' do
     it 'raises an exception if beginning frame count missing' do
-      expect { Nyudl::Video::Techlog::Clip.new(name: 'beginning of video') }.to raise_error(RuntimeError, 'frame_count_in: missing frame count')
+      expect { invalid_frame_count_in }.to raise_error(RuntimeError, 'frame_count_in: missing frame count')
     end
     it 'raises an exception if end frame count missing' do
-      expect { Nyudl::Video::Techlog::Clip.new(name: 'end of video') }.to raise_error(RuntimeError, 'frame_count_out: missing frame count')
+      expect { invalid_frame_count_out }.to raise_error(RuntimeError, 'frame_count_out: missing frame count')
     end
 
     it 'does not raise an exception if beginning frame count present' do
-      expect { Nyudl::Video::Techlog::Clip.new(name: 'beginning of video', in: 0) }.not_to raise_error
+      expect { valid_frame_count_in }.not_to raise_error
     end
     it 'raises an exception if end frame count missing' do
-      expect { Nyudl::Video::Techlog::Clip.new(name: 'end of video', in: 10) }.not_to raise_error
+      expect { valid_frame_count_out }.not_to raise_error
     end
-
-
   end
-
-
+  describe '#frame_count_in' do
+    it 'returns nil if frame_count_in not initialized' do
+      expect(clip.frame_count_in).to be_nil
+    end
+    it 'returns correct value if frame_count_in is initialized' do
+      expect(valid_frame_count_in.frame_count_in).to eql(5)
+    end
+  end
+  describe '#frame_count_out' do
+    it 'returns nil if frame_count_out not initialized' do
+      expect(clip.frame_count_out).to be_nil
+    end
+    it 'returns correct value if frame_count_in is initialized' do
+      expect(valid_frame_count_out.frame_count_out).to eql(10)
+    end
+  end
 end
   #    describe '#clips' do
   #     context 'with a single clip' do
@@ -61,3 +77,4 @@ end
 
 
 =end
+
