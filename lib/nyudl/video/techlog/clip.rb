@@ -14,14 +14,13 @@ module Nyudl
 
         def process_params(params)
           process_notes(params)
-          process_name(params)
           process_frame_count_in(params)
           process_frame_count_out(params)
         end
 
         def valid?
           if ( @frame_count_in && @frame_count_out )
-            frame_count_out <= frame_count_in
+            @frame_count_out > @frame_count_in
           else
             false
           end
@@ -33,8 +32,6 @@ module Nyudl
           when /QC|QA/i
             @notes = params[:comment] || ""
           end
-        end
-        def process_name(params)
         end
         def process_frame_count_in(params)
           case params[:name]
