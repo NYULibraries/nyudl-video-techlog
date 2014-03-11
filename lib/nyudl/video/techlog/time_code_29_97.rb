@@ -11,7 +11,7 @@ module Nyudl
 
           hh, rem = seconds.divmod(60 * 60)
           mm, ss  = rem.divmod(60)
-          mmm     = ((ss - ss.floor) * 1000).to_i
+          mmm     = ((ss - ss.floor) * 1000).round
 
           sprintf("%02d:%02d:%02d.%03d", hh, mm, ss, mmm)
         end
@@ -29,7 +29,7 @@ module Nyudl
 
           total_seconds = (((60 * hh) + mm) * 60) + ss
 
-          (total_seconds * FRAMES_PER_SEC_29_97).round.to_i
+          (total_seconds * FRAMES_PER_SEC_29_97).round
         end
       end
     end
