@@ -124,32 +124,3 @@ describe Nyudl::Video::Techlog::Clip do
   end
 
 end
-  #    describe '#clips' do
-  #     context 'with a single clip' do
-  # #      expect clip count to be correct
-  #     end
-  #     context 'with multiple clips
-  #   end
-
-  #   context 'with a single clip' do
-  #     context '#clips' do
-  #       it 'returns the correct clip array'
-  #     end
-  #     context '#digi_notes' do
-  #       it 'returns the correct digitization notes'
-  #     end
-  #     context '#
-  #     it 'returns the correct digitization notes'
-
-  #   context 'with multiple clips'
-  #   context 'with a clip missing an end marker'
-  #   context 'with an unrecognized marker name'
-
-
-=begin
-  clip logic:
-  + take time in value if name = beginning of video etc.
-
-
-=end
-

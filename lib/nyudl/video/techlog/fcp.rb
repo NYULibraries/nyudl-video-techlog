@@ -3,23 +3,36 @@ module Nyudl
   module Video
     module Techlog
       class Fcp
-        attr_reader   :digi_notes, :clips
-        attr_accessor :frame_rate
+        attr_reader   :notes, :clips
 
         def initialize(f)
           @file_path = f.dup
-          @digi_notes = ''
+          @notes = nil
           @clips = []
-          @frame_rate = 29.97
-
           process_techlog_file
+        end
+        def valid?
+          memo = true
+          @clips.inject { |memo, clip| memo && clip.valid? }
         end
 
         private
         def process_techlog_file
-          f = File.open(@file_path)
+          doc = Nokogiri::XML(File.open(@file_path))
+          current_clip = Clip.new()
+          doc.xpath('/xmeml/sequence/marker').each do |m|
+            marker = Marker.new(m)
+            if /qa|qc/i.match(marker.name)
+              @notes = marker.comment
+            else
+              current_clip.process_params(marker.to_h)
+              if current_clip.valid?
+                @clips << current_clip
+                current_clip = Clip.new()
+              end
+            end
+          end
         end
-
       end
     end
   end
