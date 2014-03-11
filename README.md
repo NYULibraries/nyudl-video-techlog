@@ -61,14 +61,15 @@ Or install it yourself as:
 
 	require 'nyudl/video/techlog'
 
-    techlog = Nyudl::Video::Techlog::Fcp.new(File.open('path/to/techlog.xml',options)
+    techlog = Nyudl::Video::Techlog::Fcp.new(File.open('path/to/techlog.xml'))
 	techlog.valid?
+	techlog.notes
 	techlog.clips 
-	clip.time_in.smpte_29_97
-	clip.time_out.smpte_29_97
-	clip.time_in.frames
-	clip.time_out.frames
-	clip.message
+
+    clip.time_in
+	clip.time_out
+	clip.frame_in
+	clip.frame_out
 
 ## Contributing
 
