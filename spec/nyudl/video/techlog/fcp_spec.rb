@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Nyudl::Video::Techlog::Fcp do
-  let(:techlog) { Nyudl::Video::Techlog::Fcp.new('test/template.xml') }
+  let(:techlog) { Nyudl::Video::Techlog::Fcp.new('test/single-valid.xml') }
+  let(:techlog_no_end_marker) { Nyudl::Video::Techlog::Fcp.new('test/single-valid.xml') }
   describe '.new' do
     it 'returns an object of the correct class' do
       expect(techlog).to be_instance_of(Nyudl::Video::Techlog::Fcp)
@@ -20,9 +21,10 @@ describe Nyudl::Video::Techlog::Fcp do
     end
   end
 end
+
 =begin
-  let(:techlog) { Nyudl::Video::Techlog::Fcp.new('test/template.xml') }
-  let(:techlog_single) { Nyudl::Video::Techlog::Fcp.new('test/template.xml') }
+  let(:techlog) { Nyudl::Video::Techlog::Fcp.new('test/single-valid.xml') }
+  let(:techlog_single) { Nyudl::Video::Techlog::Fcp.new('test/single-valid.xml') }
   describe '.new' do
     it 'returns an object of the correct class' do
       expect(techlog).to be_instance_of(Nyudl::Video::Techlog::Fcp)

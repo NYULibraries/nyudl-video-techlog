@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Nyudl::Video::Techlog::Base do
-  let(:techlog) { Nyudl::Video::Techlog::Base.new('test/template.xml') }
-  let(:techlog_single) { Nyudl::Video::Techlog::Base.new('test/template.xml') }
+  let(:techlog) { Nyudl::Video::Techlog::Base.new('test/single-valid.xml') }
+  let(:techlog_single) { Nyudl::Video::Techlog::Base.new('test/single-valid.xml') }
   describe '.new' do
     it 'returns an object of the correct class' do
       expect(techlog).to be_instance_of(Nyudl::Video::Techlog::Base)
