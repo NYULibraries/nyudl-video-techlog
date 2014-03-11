@@ -9,6 +9,7 @@ end
 %w(
    base
    time_code_29_97
+   marker
    clip
    fcp
 ).each { |f| require_relative(File.join('..','lib','nyudl','video','techlog',f)) }

@@ -15,7 +15,7 @@ describe Nyudl::Video::Techlog::Fcp do
   describe "#valid?" do
     context "with a valid fcp file" do
       it "returns true" do
-        expect(techlog.valid?).to be true
+        expect(techlog).to be_valid
       end
     end
   end

@@ -26,26 +26,26 @@ describe Nyudl::Video::Techlog::Clip do
       it 'is invalid' do
         clip.process_params(name: 'start of video', in: 15)
         clip.process_params(name: 'end of video',   in: 10)
-        expect(clip.valid?).to be false
+        expect(clip).not_to be_valid
       end
     end
     context 'when @frame_count_in not processed, @frame_count_out processed' do
       it 'is invalid' do
         clip.process_params(name: 'end of video',   in: 15)
-        expect(clip.valid?).to be false
+        expect(clip).not_to be_valid
       end
     end
     context 'when @frame_count_in processed, @frame_count_out not processed' do
       it 'is invalid' do
         clip.process_params(name: 'start of video',   in: 10)
-        expect(clip.valid?).to be false
+        expect(clip).not_to be_valid
       end
     end
     context 'when @frame_count_in processed and @frame_count_out processed' do
       it 'is valid' do
         clip.process_params(name: 'start of video',   in: 10)
         clip.process_params(name: 'end of video',   in: 15)
-        expect(clip.valid?).to be true
+        expect(clip).to be_valid
       end
     end
   end
