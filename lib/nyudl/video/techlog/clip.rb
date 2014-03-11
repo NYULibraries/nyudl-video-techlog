@@ -6,13 +6,13 @@ module Nyudl
         attr_accessor :frame_in, :frame_out, :notes
         def initialize(params = {})
           @notes = nil
-          @name  = nil
           @frame_in  = nil
           @frame_out = nil
           process_params(params)
         end
 
         def process_params(params)
+          return_value = nil
           process_notes(params)
           process_frame_in(params)
           process_frame_out(params)

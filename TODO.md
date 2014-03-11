@@ -1,5 +1,11 @@
 ## TODO:
-  * pull notes detection out of clip
+  * REFACTOR CLIP / FCP CLASSES
+    * marker class should absorb significant portion of functionality
+	  * type detection: notes / clip\_in / clip\_out
+	  * clips should be simplified to match Vstruct API data model
+	    * type, label, frame\_in, frame\_out
+
+* pull notes detection out of clip
   * add tests for marker class
   * add tests for fcp class
   * add validity tests for fcp class: if last clip started, but never added to clips array then NOT valid
@@ -9,3 +15,4 @@
 
 
   * add to_time methods to clips
+  
