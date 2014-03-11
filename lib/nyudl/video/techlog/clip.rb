@@ -26,6 +26,17 @@ module Nyudl
           end
         end
 
+        def time_in
+          return nil if @frame_count_in.nil?
+          TimeCode_29_97.frames_to_time_index(@frame_count_in)
+        end
+
+        def time_out
+          return nil if @frame_count_out.nil?
+          TimeCode_29_97.frames_to_time_index(@frame_count_out)
+        end
+
+
         private
         def process_notes(params)
           case params[:name]

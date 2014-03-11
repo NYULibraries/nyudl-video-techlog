@@ -5,7 +5,7 @@ describe Nyudl::Video::Techlog::Clip do
   let(:invalid_frame_count_in) { Nyudl::Video::Techlog::Clip.new(name: 'start of video') }
   let(:invalid_frame_count_out){ Nyudl::Video::Techlog::Clip.new(name: 'end of video') }
   let(:valid_frame_count_in)   { Nyudl::Video::Techlog::Clip.new(name: 'start of video', in: 5) }
-  let(:valid_frame_count_out)  { Nyudl::Video::Techlog::Clip.new(name: 'end of video',   in: 10) }
+  let(:valid_frame_count_out)  { Nyudl::Video::Techlog::Clip.new(name: 'end of video',   in: 500000) }
   let(:valid_notes_no_note)    { Nyudl::Video::Techlog::Clip.new(name: 'QC') }
   let(:valid_notes_with_note)  { Nyudl::Video::Techlog::Clip.new(name: 'QC', comment: 'digi notes') }
 
@@ -43,16 +43,12 @@ describe Nyudl::Video::Techlog::Clip do
     end
     context 'when @frame_count_in processed and @frame_count_out processed' do
       it 'is valid' do
-        clip.process_params(name: 'start of video',   in: 10)
+        clip.process_params(name: 'start of video', in: 10)
         clip.process_params(name: 'end of video',   in: 15)
         expect(clip).to be_valid
       end
     end
   end
-
-  # LEFT OFF HERE
-  # NEED TO TEST PARAMTER PROCESSING
-  # POSSIBLY ADD WARNING IF PROCESS_PARAMETERS CALLED AND NOTHING PROCESSED
 
   describe '#process_params' do
     context "when beginning frame count is missing" do
@@ -100,7 +96,35 @@ describe Nyudl::Video::Techlog::Clip do
     end
     context 'after ending frame count processed' do
       it 'returns the correct value' do
-        expect(valid_frame_count_out.frame_count_out).to eql(10)
+        expect(valid_frame_count_out.frame_count_out).to eql(500000)
+      end
+    end
+  end
+
+
+
+  describe '#time_in' do
+    context 'before beginning frame count processed' do
+      it 'returns nil' do
+        expect(clip.time_in).to be_nil
+      end
+    end
+    context 'after beginning frame count processed' do
+      it 'returns the correct value' do
+        expect(valid_frame_count_in.time_in).to eql("00:00:00.167")
+      end
+    end
+  end
+
+  describe '#time_out' do
+    context 'before ending frame count processed' do
+      it 'returns nil' do
+        expect(clip.time_out).to be_nil
+      end
+    end
+    context 'after ending frame count processed' do
+      it 'returns the correct value' do
+        expect(valid_frame_count_out.time_out).to eql('04:38:03.350')
       end
     end
   end
