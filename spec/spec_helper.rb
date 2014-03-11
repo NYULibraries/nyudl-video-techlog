@@ -1,4 +1,3 @@
-require 'awesome_print'
 begin
   require 'simplecov'
   SimpleCov.start
