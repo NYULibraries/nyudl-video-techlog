@@ -48,7 +48,7 @@ module Nyudl
           case params[:name]
           when /beginning of video|start of video/i
             raise "frame_in: missing frame count" unless params[:in]
-            @frame_in = params[:in]
+            @frame_in = params[:in].to_i
           end
         end
         # N.B. the way clips are described by DLTS CCG, the FCP /xmeml/marker/in is used
@@ -58,7 +58,7 @@ module Nyudl
           case params[:name]
           when /end of video/i
             raise "frame_out: missing frame count" unless params[:in]
-            @frame_out = params[:in]
+            @frame_out = params[:in].to_i
           end
         end
       end
