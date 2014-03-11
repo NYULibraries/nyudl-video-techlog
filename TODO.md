@@ -4,4 +4,4 @@
   * add tests for marker class
   * add tests for fcp class
   * add validity tests for fcp class: if last clip started, but never added to clips array then NOT valid
-
+  * check formatting issues with digitization notes.  may want to detect and strip \r<CHAPTER> 
