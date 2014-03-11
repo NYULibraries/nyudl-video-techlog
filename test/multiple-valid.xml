@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xmeml>
+<xmeml version="4">
+  <sequence id="miniDV">
+    <marker>
+      <name>QC</name>
+      <comment>TEST_FILE
+      00:00:00;00 interviewee off-center
+      00:17:xx;xx second interviewee somewhat out of frame especially hands
+      00:36:xx;xx third interviewee somewhat out of frame especially hands&#13; &lt;CHAPTER&gt;</comment>
+      <in>0</in>
+      <out>-1</out>
+    </marker>
+    <marker>
+      <name>beginning of video 1</name>
+      <comment> &lt;CHAPTER&gt;</comment>
+      <in>1350</in>
+      <out>-1</out>
+    </marker>
+    <marker>
+      <name>end of video 1</name>
+      <comment> &lt;CHAPTER&gt;</comment>
+      <in>28674</in>
+      <out>-1</out>
+    </marker>
+    <marker>
+      <name>beginning of video 2</name>
+      <comment> &lt;CHAPTER&gt;</comment>
+      <in>29109</in>
+      <out>-1</out>
+    </marker>
+    <marker>
+      <name>end of video 2</name>
+      <comment> &lt;CHAPTER&gt;</comment>
+      <in>62895</in>
+      <out>-1</out>
+    </marker>
+    <marker>
+      <name>beginning of video 3</name>
+      <comment> &lt;CHAPTER&gt;</comment>
+      <in>62971</in>
+      <out>-1</out>
+    </marker>
+    <marker>
+      <name>end of video 3</name>
+      <comment> &lt;CHAPTER&gt;</comment>
+      <in>95237</in>
+      <out>-1</out>
+    </marker>
+  </sequence>
+</xmeml>
+
