@@ -30,12 +30,6 @@
       <out>-1</out>
     </marker>
     <marker>
-      <name>end of video 2</name>
-      <comment> &lt;CHAPTER&gt;</comment>
-      <in>62895</in>
-      <out>-1</out>
-    </marker>
-    <marker>
       <name>beginning of video 3</name>
       <comment> &lt;CHAPTER&gt;</comment>
       <in>62971</in>
