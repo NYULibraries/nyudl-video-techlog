@@ -25,5 +25,11 @@ describe Nyudl::Video::Techlog::TimeCode_29_97 do
     it "handles non-zero values properly" do
       expect(Nyudl::Video::Techlog::TimeCode_29_97.time_index_to_frames('03:16:13.674')).to eql(352857)
     end
+    it "should be symmetrical" do
+      time_idx = '01:01:48.842'
+      frames   = Nyudl::Video::Techlog::TimeCode_29_97.time_index_to_frames(time_idx)
+      expect(Nyudl::Video::Techlog::TimeCode_29_97.frames_to_time_index(frames)).to eq(time_idx)
+    end
   end
+
 end
