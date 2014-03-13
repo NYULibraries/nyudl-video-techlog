@@ -4,6 +4,8 @@
 	  * type detection: notes / clip\_in / clip\_out
 	  * clips should be simplified to match Vstruct API data model
 	    * type, label, frame\_in, frame\_out
+  * Process incoming QC comments field to strip <CHAPTER> strings and replace \r with newlines
+
 
 ## DONE:
   * add to_time methods to clips
