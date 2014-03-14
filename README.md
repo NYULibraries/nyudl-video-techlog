@@ -67,6 +67,7 @@ begin
   f = Nyudl::Video::Techlog::Fcp.new('path/to/fcp.xml')
 rescue Exception => e
   $stderr.puts(e.message)
+  exit 1
 end
 
 f.clips.each_index do |i|
