@@ -58,18 +58,25 @@ Or install it yourself as:
 	
 
 ## Usage
+  toy example:
+  
+```ruby
+require 'nyudl/video/techlog'
 
-	require 'nyudl/video/techlog'
+begin
+  f = Nyudl::Video::Techlog::Fcp.new('path/to/fcp.xml')
+rescue Exception => e
+  $stderr.puts(e.message)
+end
 
-    techlog = Nyudl::Video::Techlog::Fcp.new(File.open('path/to/techlog.xml'))
-	techlog.valid?
-	techlog.notes
-	techlog.clips 
+f.clips.each_index do |i|
+  clip = f.clips[i]
+  puts "  #{i}  #{clip.time_in}   #{clip.time_out}  #{clip.frame_in}   #{clip.frame_out}"
+end
 
-    clip.time_in
-	clip.time_out
-	clip.frame_in
-	clip.frame_out
+puts f.notes
+
+```
 
 ## Contributing
 
