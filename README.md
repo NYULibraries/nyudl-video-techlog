@@ -6,21 +6,6 @@
 
 ### *UNDER DEVELOPMENT*
 
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-	gem 'nyudl-video-techlog'
-
-And then execute:
-
-	$ bundle
-
-Or install it yourself as:
-
-	$ gem install nyudl-video-techlog
-
 ## Context
   Currently, techlog files are created during the video digitization/capture process,
   e.g., Apple Final Cut Pro XML (FCP), SAMMA migration files.
