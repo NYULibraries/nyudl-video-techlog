@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xmeml>
+<xmeml version="4">
+  <sequence id="miniDV">
+    <marker>
+      <name>QA for HI2013_015</name>
+      <comment>00:00:00;00 head switching noise throughout &lt;CHAPTER>
+      </comment>
+      <color>
+	<alpha>0</alpha>
+	<red>127</red>
+	<green>0</green>
+	<blue>255</blue>
+      </color>
+      <in>0</in>
+      <out>-1</out>
+    </marker>
+    <marker>
+      <name>start of video</name>
+      <comment> &lt;CHAPTER>
+      </comment>
+      <color>
+	<alpha>0</alpha>
+	<red>127</red>
+	<green>0</green>
+	<blue>255</blue>
+      </color>
+      <in>1350</in>
+      <out>-1</out>
+    </marker>
+    <marker>
+      <name>HI2013_015_02</name>
+      <comment>Intersection II - Inauguration &lt;CHAPTER>
+      </comment>
+      <color>
+	<alpha>0</alpha>
+	<red>127</red>
+	<green>0</green>
+	<blue>255</blue>
+      </color>
+      <in>141237</in>
+      <out>-1</out>
+    </marker>
+    <marker>
+      <name>end of video</name>
+      <comment> &lt;CHAPTER>
+      </comment>
+      <color>
+	<alpha>0</alpha>
+	<red>127</red>
+	<green>0</green>
+	<blue>255</blue>
+      </color>
+      <in>182141</in>
+      <out>-1</out>
+    </marker>
+  </sequence>
+</xmeml>
