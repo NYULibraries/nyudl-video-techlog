@@ -61,6 +61,8 @@ module Nyudl
               current_clip.process_params(marker.to_h)
               raise "processed clip_out marker, but clip still invalid" unless current_clip.valid?
               @clips << current_clip
+            else
+              raise "invalid marker detected"
             end
           end
           raise "ended in invalid state: #{state}" unless state == :clip_out

@@ -39,7 +39,7 @@ describe Nyudl::Video::Techlog::Fcp do
     end
     context "with an invalid file with an in-line marker other than begin/end" do
       it "does raises an exception" do
-        expect {techlog_multiple_invalid_bad_element_in_sequence}.to raise_error(RuntimeError, "invalid marker, not begin or end")
+        expect {techlog_multiple_invalid_bad_element_in_sequence}.to raise_error(RuntimeError, "invalid marker detected")
       end
     end
   end
