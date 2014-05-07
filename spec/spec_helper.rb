@@ -1,3 +1,5 @@
+require_relative '../lib/nyudl/video/techlog'
+
 begin
   require 'simplecov'
   SimpleCov.start
@@ -5,12 +7,6 @@ rescue LoadError
   puts 'Coverage disabled, enable by installing simplecov'
 end
 
-%w(
-   time_code_29_97
-   marker
-   clip
-   fcp
-).each { |f| require_relative(File.join('..','lib','nyudl','video','techlog',f)) }
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
