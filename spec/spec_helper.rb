@@ -1,4 +1,4 @@
-require_relative '../lib/nyudl/video/techlog'
+require 'nyudl/video/techlog'
 
 begin
   require 'simplecov'
